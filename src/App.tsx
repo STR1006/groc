@@ -11,12 +11,10 @@ import {
   Share2,
   Download,
   Upload,
-  Edit,
   X,
   Copy,
   ChevronUp,
   ChevronDown,
-  MoreHorizontal,
   Filter,
 } from "lucide-react";
 
@@ -199,7 +197,6 @@ export default function GuluInventoryApp() {
   });
 
   // PWA states
-  const [isOffline, setIsOffline] = useState(false);
   const [showOfflineNotice, setShowOfflineNotice] = useState(false);
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
 
@@ -211,19 +208,16 @@ export default function GuluInventoryApp() {
   useEffect(() => {
     // Simple offline detection
     const handleOnline = () => {
-      setIsOffline(false);
       setShowOfflineNotice(false);
     };
     
-    const handleOffline = () => {
-      setIsOffline(true);
+    const handleOffline = () => {;
       setShowOfflineNotice(true);
       setTimeout(() => setShowOfflineNotice(false), 3000);
     };
 
     if (typeof window !== 'undefined') {
       // Check initial online status
-      setIsOffline(!navigator.onLine);
       
       // Add connectivity listeners
       window.addEventListener('online', handleOnline);
@@ -495,24 +489,6 @@ export default function GuluInventoryApp() {
 
   const deleteList = (listId: string) =>
     setLists(lists.filter((list) => list.id !== listId));
-
-  const updateProduct = (
-    productId: string,
-    updates: Partial<Product>,
-  ) => {
-    if (!selectedList) return;
-    const updatedList = {
-      ...selectedList,
-      products: selectedList.products.map((p) =>
-        p.id === productId ? { ...p, ...updates } : p,
-      ),
-    };
-    setLists(
-      lists.map((list) =>
-        list.id === selectedList.id ? updatedList : list,
-      ),
-    );
-  };
 
   const resetAllProducts = () => {
     if (!selectedList) return;
