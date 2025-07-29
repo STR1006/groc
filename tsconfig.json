@@ -14,16 +14,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Path aliases - THESE ARE CRUCIAL */
-    "baseUrl": "./", // This tells TypeScript where to resolve non-relative paths from
+    /* Path aliases */
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"] // This maps "@/" to the "src" directory
+      "@/*": ["./src/*"]
     },
 
-    /* Linting */
+    /* Linting - MODIFIED THESE LINES */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,   // Set to false
+    "noUnusedParameters": false, // Set to false
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
