@@ -1,14 +1,14 @@
 module.exports = {
   content: [
-  "./index.html",
-  "./src/**/*.{js,ts,jsx,tsx}",
-],
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        // ...add other custom properties as needed
+        background: "rgb(var(--background) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        // ...add the rest if you use them
       },
     },
   },

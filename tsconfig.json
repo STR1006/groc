@@ -14,6 +14,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Path aliases - THESE ARE CRUCIAL */
+    "baseUrl": "./", // This tells TypeScript where to resolve non-relative paths from
+    "paths": {
+      "@/*": ["./src/*"] // This maps "@/" to the "src" directory
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
